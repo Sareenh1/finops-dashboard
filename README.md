@@ -1,6 +1,5 @@
 # FinOps Dashboard for AWS Free Tier Monitoring
 
-![FinOps Architecture Diagram](architecture.png)
 
 A monitoring solution that tracks AWS Free Tier usage and provides cost visibility to prevent unexpected charges.
 
