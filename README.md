@@ -1,15 +1,23 @@
 # FinOps Dashboard for AWS Free Tier Monitoring
 
-This project monitors AWS Free Tier usage and provides visibility into potential cost overruns.
+![FinOps Architecture Diagram](architecture.png)
+
+A monitoring solution that tracks AWS Free Tier usage and provides cost visibility to prevent unexpected charges.
 
 ## Features
-- Daily collection of AWS cost and usage data
-- SQLite database for storage
-- Grafana dashboard for visualization
-- Alerting for free tier limit breaches
 
-## Setup
-1. Install requirements: `sudo apt install python3 python3-pip awscli sqlite3 grafana`
-2. Configure AWS CLI: `aws configure`
-3. Set up cron job for daily data collection
-4. Configure Grafana with SQLite data source
+- **Daily AWS Cost Collection**: Automatically fetches cost and usage data from AWS Cost Explorer API
+- **SQLite Database**: Lightweight storage for historical usage data
+- **Grafana Dashboard**: Visualize usage trends and cost metrics
+- **Alerting System**: Get notified when approaching Free Tier limits
+- **Cron Automation**: Scheduled daily data collection
+
+## Architecture
+
+```mermaid
+graph TD
+    A[AWS Services] -->|API Calls| B[EC2 Ubuntu Instance]
+    B --> C[Python Data Collector]
+    C --> D[SQLite Database]
+    D --> E[Grafana Dashboard]
+    E --> F[Alerts]
